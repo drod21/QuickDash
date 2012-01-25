@@ -18,7 +18,7 @@
         android:id="@+id/rotation_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dip"
+        android:paddingTop="3dip"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/rotation_button"
         android:text="@string/rotation_desc"

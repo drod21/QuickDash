@@ -81,7 +81,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
         updateButtonState();
 
 		alert.show();
-        alert.getWindow().setLayout(700, 750);
+        //alert.getWindow().setLayout(700, 820);
 	}
 
     private void registerClickListener(View mView) {

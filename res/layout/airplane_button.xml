@@ -18,7 +18,7 @@
         android:id="@+id/airplane_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dip"
+        android:paddingTop="3dip"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/airplane_button"
         android:text="@string/airplane_desc"

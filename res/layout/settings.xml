@@ -2,7 +2,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relativeLayout"
-    android:padding="5dip">
+    android:paddingTop="5dip"
+    android:paddingRight="5dip"
+    android:paddingBottom="10dip"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content">
 
     <!-- Row One -->
     <include
@@ -49,7 +53,7 @@
         layout="@layout/bluetooth_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
+        android:layout_marginTop="18dip"
         android:layout_marginLeft="12dip"
         android:gravity="left"
         android:layout_below="@id/wifi_button_layout"/>
@@ -59,7 +63,7 @@
         layout="@layout/sound_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
+        android:layout_marginTop="18dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/bluetooth_button_layout"
         android:layout_below="@id/data_button_layout"/>
@@ -69,7 +73,7 @@
         layout="@layout/rotation_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
+        android:layout_marginTop="18dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/sound_button_layout"
         android:layout_below="@id/airplane_button_layout"/>
@@ -79,7 +83,7 @@
         layout="@layout/tether_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
+        android:layout_marginTop="18dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/rotation_button_layout"
         android:layout_below="@id/lte_button_layout"/>
@@ -91,8 +95,8 @@
         layout="@layout/gps_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
-        android:layout_marginBottom="8dip"
+        android:layout_marginTop="18dip"
+        android:paddingBottom="8dip"
         android:layout_marginLeft="12dip"
         android:gravity="left"
         android:layout_below="@id/bluetooth_button_layout"/>
@@ -102,8 +106,8 @@
         layout="@layout/brightness_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
-        android:layout_marginBottom="8dip"
+        android:layout_marginTop="18dip"
+        android:paddingBottom="8dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/gps_button_layout"
         android:layout_below="@id/sound_button_layout"/>
@@ -113,8 +117,8 @@
         layout="@layout/torch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
-        android:layout_marginBottom="8dip"
+        android:layout_marginTop="18dip"
+        android:paddingBottom="8dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/brightness_button_layout"
         android:layout_below="@id/rotation_button_layout"/>
@@ -124,8 +128,8 @@
         layout="@layout/sync_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dip"
-        android:layout_marginBottom="8dip"
+        android:layout_marginTop="18dip"
+        android:paddingBottom="8dip"
         android:layout_marginLeft="29dip"
         android:layout_toRightOf="@id/torch_button_layout"
         android:layout_below="@id/tether_button_layout"/>
