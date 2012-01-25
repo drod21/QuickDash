@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/airplane_button_layout">
+
+    <ImageButton
+        android:id="@+id/airplane_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@android:color/transparent"
+        android:layout_centerHorizontal="true">
+    </ImageButton>
+
+    <TextView
+        android:id="@+id/airplane_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/airplane_button"
+        android:text="@string/airplane_desc"
+        android:textSize="12dip"
+        android:textColor="#FFFFFFFF">
+    </TextView>
+</RelativeLayout>

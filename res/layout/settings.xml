@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:padding="5dip">
+
+    <!-- Row One -->
+    <include
+        android:id="@+id/wifi_button_layout"
+        layout="@layout/wifi_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="12dip"
+        android:gravity="left"/>
+
+    <include
+        android:id="@+id/data_button_layout"
+        layout="@layout/data_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/wifi_button_layout"/>
+
+    <include
+        android:id="@+id/airplane_button_layout"
+        layout="@layout/airplane_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/data_button_layout"/>
+
+    <include
+        android:id="@+id/lte_button_layout"
+        layout="@layout/lte_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dip"
+        android:paddingTop="8dip"
+        android:layout_toRightOf="@id/airplane_button_layout"/>
+
+
+    <!-- Row two -->
+
+    <include
+        android:id="@+id/bluetooth_button_layout"
+        layout="@layout/bluetooth_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="12dip"
+        android:gravity="left"
+        android:layout_below="@id/wifi_button_layout"/>
+
+    <include
+        android:id="@+id/sound_button_layout"
+        layout="@layout/sound_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/bluetooth_button_layout"
+        android:layout_below="@id/data_button_layout"/>
+
+    <include
+        android:id="@+id/rotation_button_layout"
+        layout="@layout/rotation_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/sound_button_layout"
+        android:layout_below="@id/airplane_button_layout"/>
+
+    <include
+        android:id="@+id/tether_button_layout"
+        layout="@layout/tether_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/rotation_button_layout"
+        android:layout_below="@id/lte_button_layout"/>
+
+    <!-- Row three -->
+
+    <include
+        android:id="@+id/gps_button_layout"
+        layout="@layout/gps_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="12dip"
+        android:gravity="left"
+        android:layout_below="@id/bluetooth_button_layout"/>
+
+    <include
+        android:id="@+id/brightness_button_layout"
+        layout="@layout/brightness_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/gps_button_layout"
+        android:layout_below="@id/sound_button_layout"/>
+
+    <include
+        android:id="@+id/torch_button_layout"
+        layout="@layout/torch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/brightness_button_layout"
+        android:layout_below="@id/rotation_button_layout"/>
+
+    <include
+        android:id="@+id/sync_button_layout"
+        layout="@layout/sync_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="29dip"
+        android:layout_toRightOf="@id/torch_button_layout"
+        android:layout_below="@id/tether_button_layout"/>
+
+</RelativeLayout>

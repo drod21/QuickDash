@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+    <string name="app_name">QuickDash</string>
+    <string name="battery_level">Battery: 0 %</string>
+    <string name="wifi_desc">WiFi</string>
+    <string name="data_desc">Data</string>
+    <string name="sound_desc">Sound</string>
+    <string name="rotation_desc">Rotation</string>
+    <string name="airplane_desc">Airplane</string>
+    <string name="lte_desc">LTE</string>
+    <string name="tether_desc">Tether</string>
+    <string name="bluetooth_desc">Bluetooth</string>
+    <string name="gps_desc">GPS</string>
+    <string name="brightness_desc">Display</string>
+    <string name="torch_desc">Torch</string>
+    <string name="sync_desc">Sync</string>
+</resources>
