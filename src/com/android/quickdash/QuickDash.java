@@ -228,7 +228,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
                     R.drawable.sync_on : R.drawable.sync_off);
 
             /* Not implemented yet */
-            mTorchButton.setImageResource(R.drawable.torch_on);
+            mTorchButton.setImageResource(R.drawable.torch_off);
 
         } catch (SettingNotFoundException b) {
             // Don't need logging yet.
