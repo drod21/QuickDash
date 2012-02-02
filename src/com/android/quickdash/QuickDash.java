@@ -67,6 +67,15 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
     private TextView mTorchDesc;
     private TextView mSyncDesc;
 
+    int mWifiApEnabled;
+    int mRingerMode;
+    int mNetworkMode;
+    int mBrightnessLevel;
+    boolean mRotationEnabled;
+    boolean mAirplaneEnabled;
+    boolean mAutoBrightEnabled;
+    boolean syncValue;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -81,7 +90,6 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
         updateButtonState();
 
 		alert.show();
-        //alert.getWindow().setLayout(700, 820);
 	}
 
     private void registerClickListener(View mView) {
@@ -149,7 +157,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
 
     private void updateButtonState() {
         try {
-            /* Set up where we are getting our values */
+
             WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
             ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
             AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -158,24 +166,24 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
             IPowerManager mPowerManager = IPowerManager.Stub.asInterface(ServiceManager.getService("power"));
 
             /* get all the values */
-            int mWifiApEnabled = wifiManager.getWifiApState();
-            int mRingerMode = am.getRingerMode();
-            int mNetworkMode = Settings.Secure.getInt(
+            mWifiApEnabled = wifiManager.getWifiApState();
+            mRingerMode = am.getRingerMode();
+            mNetworkMode = Settings.Secure.getInt(
                     getContentResolver(),
                     Settings.Secure.PREFERRED_NETWORK_MODE);
-            int mBrightnessLevel = Settings.System.getInt(
+            mBrightnessLevel = Settings.System.getInt(
                     getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS);
-            boolean mRotationEnabled = (Settings.System.getInt(
+            mRotationEnabled = (Settings.System.getInt(
                     getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION, 0) == 1);
-            boolean mAirplaneEnabled = (Settings.System.getInt(
+            mAirplaneEnabled = (Settings.System.getInt(
                     getContentResolver(),
                     Settings.System.AIRPLANE_MODE_ON, 0) == 1);
-            boolean mAutoBrightEnabled = (Settings.System.getInt(
+            mAutoBrightEnabled = (Settings.System.getInt(
                     getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, 0) == 1);
-            boolean syncValue = ContentResolver.getMasterSyncAutomatically();
+            syncValue = ContentResolver.getMasterSyncAutomatically();
 
             /* set images based on values */
             mWifiButton.setImageResource(wifiManager.isWifiEnabled() ?
@@ -216,7 +224,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
             if (mAutoBrightEnabled) {
                 mBrightnessButton.setImageResource(
                         R.drawable.brightness_auto);
-            } else if (mBrightnessLevel == 100) {
+            } else if (mBrightnessLevel == 255) {
                 mBrightnessButton.setImageResource(
                         R.drawable.brightness_full);
             } else {
@@ -248,9 +256,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
     @Override
     public void onClick(View v) {
         if (v == mWifiButton) {
-            WifiManager wifiManager = (WifiManager) getSystemService
-                    (Context.WIFI_SERVICE);
-
+            WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
             boolean wifiEnabled = wifiManager.isWifiEnabled();
             wifiManager.setWifiEnabled(!wifiEnabled);
             updateButtonState();
@@ -338,28 +344,39 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
         } else if (v == mBrightnessButton) {
             try {
                 IPowerManager power = IPowerManager.Stub.asInterface(ServiceManager.getService("power"));
+                int newBrightnessLevel = 10;
                 int brightnessMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
                 int brightnessLevel = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
                 if (brightnessMode == 1) {
                     Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, 0);
                     Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 10);
+                    newBrightnessLevel = 10;
                 } else {
                     if (brightnessLevel == 10) {
-                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 25);
-                    } else if (brightnessLevel == 25) {
                         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 50);
+                        newBrightnessLevel = 50;
                     } else if (brightnessLevel == 50) {
-                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 75);
-                    } else if (brightnessLevel == 75) {
                         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 100);
+                        newBrightnessLevel = 100;
                     } else if (brightnessLevel == 100) {
-                    Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, 1);
+                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 150);
+                        newBrightnessLevel = 150;
+                    } else if (brightnessLevel == 150) {
+                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 200);
+                        newBrightnessLevel = 200;
+                    } else if (brightnessLevel == 200) {
+                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 255);
+                        newBrightnessLevel = 255;
+                    } else if (brightnessLevel == 255) {
+                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, 1);
+                        newBrightnessLevel = 10;
                     } else {
-                    Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 10);
+                        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 10);
+                        newBrightnessLevel = 10;
                     }
                 }
                 try {
-                    power.setBacklightBrightness(brightnessLevel);
+                    power.setBacklightBrightness(newBrightnessLevel);
                 } catch (RemoteException r) {
                 }
             } catch (SettingNotFoundException e) {
