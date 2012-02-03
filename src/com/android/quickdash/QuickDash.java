@@ -410,7 +410,7 @@ public class QuickDash extends Activity implements OnDismissListener, OnClickLis
                         newBrightnessLevel = 255;
                     } else if (brightnessLevel == 255) {
                         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, 1);
-                        Toast.makeText(this, "New brightness level: 10", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "New brightness level: AUTO", Toast.LENGTH_SHORT).show();
                         newBrightnessLevel = 10;
                     } else {
                         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 10);
